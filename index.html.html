@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prakarsh Manori – Web Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--ink:#12141f;--mute:#5b6076;--accent:#5b4dff;--accent2:#00b4a6;--card:#fff;--line:#e1e4ef;--code:#12141f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0f18;--ink:#eceefb;--mute:#9298b3;--accent:#8f85ff;--accent2:#2fd8c8;--card:#161926;--line:#262a3d;--code:#090a11}}
+:root[data-theme="dark"]{--bg:#0d0f18;--ink:#eceefb;--mute:#9298b3;--accent:#8f85ff;--accent2:#2fd8c8;--card:#161926;--line:#262a3d;--code:#090a11}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.65 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font-family:Sora,sans-serif;font-weight:800;text-decoration:none}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--mute);padding:7px 14px;border-radius:99px;font-size:.95rem;transition:.2s}
+nav a:hover{color:var(--ink)}
+nav a.on{background:var(--accent);color:#fff}
+main{max-width:1040px;margin:0 auto;padding:0 22px}
+.page{display:none;padding:56px 0 70px}
+.page.on{display:block}
+/* animation */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.blob,.marq div,.caret{animation:none!important}}
+.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:20px 0 30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;z-index:-1;animation:float 8s ease-in-out infinite}
+.b1{width:260px;height:260px;background:var(--accent);top:-40px;left:-60px}
+.b2{width:220px;height:220px;background:var(--accent2);bottom:-30px;right:0;animation-delay:-4s}
+.hi{color:var(--accent);font-weight:500;margin:0 0 10px}
+h1{font-size:clamp(2.4rem,7vw,4.3rem);font-weight:800;letter-spacing:-.03em}
+h1 em,.grad{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:Sora,sans-serif;font-size:1.35rem;margin:16px 0 0;min-height:1.8em}
+.caret{display:inline-block;width:3px;height:1.1em;background:var(--accent);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(2) infinite}
+.lead{color:var(--mute);font-size:1.12rem;margin:16px 0 26px;max-width:30em}
+.btn{display:inline-block;padding:13px 24px;border:0;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font:500 1rem "DM Sans",sans-serif;margin:0 10px 10px 0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px color-mix(in srgb,var(--accent) 40%,transparent)}
+.btn.alt{background:none;border:1px solid var(--line);color:var(--ink)}
+.code{background:var(--code);color:#d7dbf5;border-radius:14px;padding:20px;font:14px/1.7 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre;animation:float 7s ease-in-out infinite}
+.code i{font-style:normal;color:#8f85ff}.code b{font-weight:400;color:#2fd8c8}.code u{text-decoration:none;color:#7b819c}
+.dots{display:flex;gap:6px;margin-bottom:14px}.dots s{width:10px;height:10px;border-radius:50%;background:#2c3047}
+.marq{overflow:hidden;border-block:1px solid var(--line);margin:40px 0;padding:14px 0}
+.marq div{display:flex;gap:44px;width:max-content;animation:slide 22s linear infinite;font-family:Sora,sans-serif;font-weight:700;color:var(--mute)}
+.marq span{white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-bottom:60px}
+.stat{text-align:center;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.stat b{display:block;font:800 2.4rem Sora,sans-serif}
+.stat span{color:var(--mute);font-size:.95rem}
+.sec{margin:64px 0 0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.02em;margin-bottom:12px}
+.sub{color:var(--mute);margin:0 0 30px;max-width:38em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 14px 30px color-mix(in srgb,var(--accent) 16%,transparent)}
+.card h3{font-size:1.22rem;margin-bottom:8px}
+.card p{margin:0 0 12px;color:var(--mute);font-size:.98rem}
+.ic{font-size:1.8rem;display:block;margin-bottom:10px}
+.tag{display:inline-block;font-size:.82rem;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);margin:0 6px 6px 0}
+.bar2{height:8px;background:var(--line);border-radius:9px;margin-top:10px;overflow:hidden}
+.bar2 span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:9px;transition:width 1.4s ease .3s}
+.in .bar2 span{width:var(--w)}
+.lvl{display:flex;justify-content:space-between;font-size:.9rem;color:var(--mute)}
+.tl{border-left:2px solid var(--line);margin-left:8px;padding-left:26px}
+.tl .it{position:relative;padding-bottom:28px}
+.tl .it::before{content:"";position:absolute;left:-34px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 20%,transparent)}
+.tl h3{font-size:1.1rem}.tl p{margin:4px 0 0;color:var(--mute)}
+.cta{margin-top:70px;text-align:center;padding:48px 22px;border-radius:22px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.cta h2{margin-bottom:10px}.cta p{margin:0 0 22px;opacity:.92}
+.cta .btn{background:#fff;color:#12141f;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media(max-width:780px){.two{grid-template-columns:1fr}}
+.row{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .2s}
+.row:hover{padding-left:10px}
+.row span:last-child{color:var(--accent);word-break:break-all;text-align:right}
+input,textarea{width:100%;padding:13px 14px;margin-bottom:12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+textarea{min-height:130px;resize:vertical}
+footer{border-top:1px solid var(--line);text-align:center;color:var(--mute);padding:28px 22px 40px;font-size:.95rem}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#home">Prakarsh<span>Manori</span></a>
+<nav id="nav"><a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</div></header>
+<main>
+
+<!-- HOME -->
+<section class="page" id="home">
+<div class="hero">
+<div class="blob b1"></div><div class="blob b2"></div>
+<div>
+<p class="hi rv">Hello, I'm</p>
+<h1 class="rv" style="--d:.1s"><em>Prakarsh</em> Manori</h1>
+<p class="role rv" style="--d:.2s"><span id="typed"></span><span class="caret"></span></p>
+<p class="lead rv" style="--d:.3s">BCA student (AI &amp; ML) who builds fast, responsive websites with Python and C++, and is learning to create smart AI-powered apps.</p>
+<div class="rv" style="--d:.4s"><a class="btn" href="#projects">View my work</a><a class="btn alt" href="#contact">Hire me</a></div>
+</div>
+<div class="code rv" style="--d:.3s"><div class="dots"><s></s><s></s><s></s></div><u># prakarsh.py</u>
+<i>class</i> <b>Prakarsh</b>:
+    skills = [<b>"Python"</b>, <b>"C++"</b>, <b>"Web"</b>, <b>"ML"</b>]
+    studying = <b>"BCA (AI &amp; ML)"</b>
+    open_to_work = <i>True</i>
+
+    <i>def</i> <b>build</b>(self, idea):
+        <i>return</i> <b>"a fast, clean website"</b>
+</div></div>
+
+<div class="marq rv"><div><span>Python</span><span>C++</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span><span>Machine Learning</span><span>Pandas</span><span>Git</span><span>Python</span><span>C++</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span><span>Machine Learning</span><span>Pandas</span><span>Git</span></div></div>
+
+<div class="stats">
+<div class="stat rv"><b><span data-n="3">0</span>+</b><span>Core skills</span></div>
+<div class="stat rv" style="--d:.1s"><b><span data-n="5">0</span>+</b><span>Projects built</span></div>
+<div class="stat rv" style="--d:.2s"><b><span data-n="100">0</span>%</b><span>Responsive designs</span></div>
+<div class="stat rv" style="--d:.3s"><b>AI/ML</b><span>Currently studying</span></div>
+</div>
+
+<div class="sec" style="margin-top:0"><h2 class="rv">What I <span class="grad">do</span></h2><p class="sub rv">From idea to a working website, with clean code behind it.</p>
+<div class="grid">
+<div class="card rv"><span class="ic">🌐</span><h3>Website development</h3><p>Responsive, fast websites for businesses, students and creators.</p></div>
+<div class="card rv" style="--d:.1s"><span class="ic">🐍</span><h3>Python backend</h3><p>APIs, logins, databases and automation scripts.</p></div>
+<div class="card rv" style="--d:.2s"><span class="ic">⚙️</span><h3>C++ programming</h3><p>Efficient programs, data structures and problem solving.</p></div>
+<div class="card rv" style="--d:.3s"><span class="ic">🤖</span><h3>AI &amp; ML</h3><p>Learning to train models and add smart features to apps.</p></div>
+</div></div>
+
+<div class="sec"><h2 class="rv">How I <span class="grad">work</span></h2><p class="sub rv">A simple process so you always know what's happening.</p>
+<div class="tl">
+<div class="it rv"><h3>1. Understand</h3><p>We talk about your goal, audience and what the site must do.</p></div>
+<div class="it rv"><h3>2. Design</h3><p>I plan the pages and layout so it looks clean on every screen.</p></div>
+<div class="it rv"><h3>3. Build</h3><p>I write the code with HTML, CSS, JavaScript and Python.</p></div>
+<div class="it rv"><h3>4. Launch</h3><p>I test everything, fix issues and publish your site.</p></div>
+</div></div>
+
+<div class="cta rv"><h2>Have a project in mind?</h2><p>Let's build something great together.</p><a class="btn" href="#contact">Contact me</a></div>
+</section>
+
+<!-- SKILLS -->
+<section class="page" id="skills">
+<h2 class="rv">My <span class="grad">skills</span></h2><p class="sub rv">Tools I use to design, build and ship.</p>
+<div class="grid">
+<div class="card rv"><span class="ic">🐍</span><h3>Python</h3><p>Backend, APIs and automation with Flask or Django.</p><div class="lvl"><span>Level</span><span>85%</span></div><div class="bar2"><span style="--w:85%"></span></div></div>
+<div class="card rv" style="--d:.1s"><span class="ic">⚙️</span><h3>C++</h3><p>Fast programs, data structures and algorithms.</p><div class="lvl"><span>Level</span><span>75%</span></div><div class="bar2"><span style="--w:75%"></span></div></div>
+<div class="card rv" style="--d:.2s"><span class="ic">🌐</span><h3>Web development</h3><p>HTML, CSS and JavaScript, responsive on every screen.</p><div class="lvl"><span>Level</span><span>90%</span></div><div class="bar2"><span style="--w:90%"></span></div></div>
+<div class="card rv" style="--d:.3s"><span class="ic">🤖</span><h3>AI &amp; Machine Learning</h3><p>Data analysis, model training and AI basics with Python.</p><div class="lvl"><span>Level</span><span>60%</span></div><div class="bar2"><span style="--w:60%"></span></div></div>
+</div>
+<div class="sec"><h2 class="rv">Tools &amp; <span class="grad">technologies</span></h2>
+<div class="rv"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Flask</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">SQL</span><span class="tag">Git &amp; GitHub</span><span class="tag">VS Code</span></div></div>
+<div class="sec"><h2 class="rv">Currently <span class="grad">learning</span></h2>
+<div class="grid"><div class="card rv"><h3>Machine learning</h3><p>Regression, classification and model evaluation.</p></div><div class="card rv" style="--d:.1s"><h3>Deep learning</h3><p>Neural networks and how modern AI works.</p></div><div class="card rv" style="--d:.2s"><h3>Full-stack apps</h3><p>Connecting websites with databases and AI models.</p></div></div></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="page" id="projects">
+<h2 class="rv">My <span class="grad">projects</span></h2><p class="sub rv">Websites, tools and AI experiments.</p>
+<div class="grid">
+<div class="card rv"><span class="ic">🏢</span><h3>Business website</h3><p>Responsive multi-page site with a contact form and fast loading.</p><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+<div class="card rv" style="--d:.1s"><span class="ic">🔐</span><h3>Python web app</h3><p>Full-stack app with user login and a database.</p><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQL</span></div>
+<div class="card rv" style="--d:.2s"><span class="ic">🖥️</span><h3>C++ tool</h3><p>Command-line program that solves a real problem efficiently.</p><span class="tag">C++</span><span class="tag">STL</span></div>
+<div class="card rv"><span class="ic">📈</span><h3>ML prediction model</h3><p>Trains a model on a dataset and shows predictions on a web page.</p><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span></div>
+<div class="card rv" style="--d:.1s"><span class="ic">💬</span><h3>AI chatbot</h3><p>A simple chatbot that answers questions inside a website.</p><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">AI</span></div>
+<div class="card rv" style="--d:.2s"><span class="ic">🎨</span><h3>Portfolio website</h3><p>This site: five pages, animations and light/dark mode.</p><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+</div>
+<div class="cta rv"><h2>Want something like this?</h2><p>I can build a website for you too.</p><a class="btn" href="#contact">Let's talk</a></div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+<h2 class="rv">About <span class="grad">me</span></h2>
+<div class="two">
+<div><p class="sub rv" style="max-width:none">I'm Prakarsh Manori, a BCA student specializing in AI and ML, and a web developer. I enjoy turning ideas into working products: Python for building and automating, C++ when speed matters, and machine learning to make apps smarter.</p>
+<p class="sub rv">I like clean design, simple code and learning something new every week.</p>
+<div class="rv"><span class="tag">Problem solver</span><span class="tag">Quick learner</span><span class="tag">Team player</span><span class="tag">Detail oriented</span></div></div>
+<div class="tl">
+<div class="it rv"><h3>BCA in AI &amp; ML</h3><p>Currently pursuing. Learning programming, data and AI.</p></div>
+<div class="it rv"><h3>Web development</h3><p>Building responsive websites with HTML, CSS and JavaScript.</p></div>
+<div class="it rv"><h3>Python &amp; C++</h3><p>Practising projects, algorithms and backend development.</p></div>
+<div class="it rv"><h3>Next: ML projects</h3><p>Building real AI-powered apps for my portfolio.</p></div>
+</div></div>
+<div class="sec"><div class="grid">
+<div class="card rv"><h3>What I want</h3><p>Internships, freelance projects and a junior developer or ML role where I can keep learning.</p></div>
+<div class="card rv" style="--d:.1s"><h3>Interests</h3><p>Web design, artificial intelligence, problem solving and new technology.</p></div>
+</div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+<h2 class="rv">Get in <span class="grad">touch</span></h2><p class="sub rv">Have a project or opportunity? Send me a message.</p>
+<div class="two">
+<div class="rv">
+<a class="row" href="mailto:vrizzxbusiness@gmail.com"><span>Email</span><span>vrizzxbusiness@gmail.com</span></a>
+<a class="row" href="https://github.com/yourname"><span>GitHub</span><span>github.com/yourname</span></a>
+<a class="row" href="https://linkedin.com/in/yourname"><span>LinkedIn</span><span>linkedin.com/in/yourname</span></a>
+<p class="sub" style="margin-top:20px">I usually reply within a day.</p>
+</div>
+<div class="rv" style="--d:.1s">
+<input id="cn" placeholder="Your name" aria-label="Your name">
+<input id="ce" placeholder="Your email" aria-label="Your email">
+<input id="cp" placeholder="Phone number (optional)" aria-label="Phone number">
+<textarea id="cm" placeholder="Your message" aria-label="Your message"></textarea>
+<button class="btn" onclick="sendMail()">Send message</button>
+<p id="cs" class="sub" role="status" style="margin:8px 0 0"></p>
+</div></div>
+</section>
+
+</main>
+<footer>© 2026 Prakarsh Manori · <a href="mailto:vrizzxbusiness@gmail.com">vrizzxbusiness@gmail.com</a></footer>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+function route(){
+  var id=(location.hash||"#home").slice(1);
+  if(!document.getElementById(id))id="home";
+  document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("on",p.id===id)});
+  document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+id)});
+  window.scrollTo(0,0);
+  if(id==="home")count();
+}
+var counted=false;
+function count(){
+  if(counted)return;counted=true;
+  document.querySelectorAll("[data-n]").forEach(function(el){
+    var n=+el.dataset.n,s=null;
+    function step(t){if(!s)s=t;var p=Math.min((t-s)/1400,1);el.textContent=Math.round(n*p);if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  });
+}
+var roles=["Web Developer","Python Developer","C++ Programmer","AI & ML Student"],ri=0,ci=0,del=false,tp=document.getElementById("typed");
+function type(){
+  var w=roles[ri];
+  tp.textContent=w.slice(0,ci);
+  if(!del&&ci<w.length){ci++;setTimeout(type,90)}
+  else if(!del){del=true;setTimeout(type,1300)}
+  else if(ci>0){ci--;setTimeout(type,45)}
+  else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}
+}
+var SHEET_URL="https://script.google.com/macros/s/AKfycbwQpNnOwo6rbzNjryh7P-npMscNsRdoSEegrg9KlXHYGvGvV71qTgMDJc2k-kRuCzd7/exec"; /* paste your Google Apps Script Web App URL here */
+async function sendMail(){
+  var g=function(i){return document.getElementById(i).value.trim()};
+  var d={name:g("cn"),email:g("ce"),phone:g("cp"),message:g("cm")};
+  var st=document.getElementById("cs");
+  if(!d.name||!d.email||!d.message){st.textContent="Please fill in name, email and message.";return}
+  if(!SHEET_URL){mailFallback();return}
+  st.textContent="Sending...";
+  try{
+    await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});
+    st.textContent="Thanks! Your message was sent.";
+    ["cn","ce","cp","cm"].forEach(function(i){document.getElementById(i).value=""});
+  }catch(err){mailFallback()}
+}
+function mailFallback(){
+  var n=document.getElementById("cn").value,e=document.getElementById("ce").value,m=document.getElementById("cm").value;
+  location.href="mailto:vrizzxbusiness@gmail.com?subject="+encodeURIComponent("Portfolio message from "+n)+"&body="+encodeURIComponent(m+"\n\nFrom: "+n+" ("+e+")");
+}
+window.addEventListener("hashchange",route);route();type();
+</script>
+</body>
+</html>
